@@ -4,10 +4,11 @@ from tkinter import ttk
 from hangman import hangman
 
 def submit_letter(letter):
-	hangman.update_values(letter)
-	update_lables()
+	did_win = hangman.update_values(letter)
+	print(did_win)
+	update_labels()
 
-def update_lables():
+def update_labels():
 	secret_word.config(text=hangman.secret_word_render())
 	guessed_letters.config(text=hangman.guessed_letters)
 	life.config(text=hangman.life)

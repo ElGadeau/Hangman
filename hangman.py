@@ -8,7 +8,7 @@ class hangman:
 		shown_word = ""
 
 		for letter in self.secret_word:
-			if letter in self.guessed_letters:
+			if letter in self.guessed_letters or letter == " ":
 				shown_word += letter
 			else:
 				shown_word += "_"
@@ -35,3 +35,17 @@ class hangman:
 	@classmethod
 	def update_values(self, letter):
 		self.life += self.guess_letter(letter)
+		return self.check_win_condition()
+
+	@classmethod
+	def check_win_condition(self):	
+	    letter_found = False
+
+	    for letter in self.secret_word:
+	        if letter in self.guessed_letters or letter == " ":
+	            letter_found = True
+	        else:
+	            letter_found = False
+	            return letter_found
+
+	    return letter_found
