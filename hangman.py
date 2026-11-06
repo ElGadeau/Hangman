@@ -1,5 +1,5 @@
 class hangman:
-	secret_word = "hello"
+	secret_word = ""
 	guessed_letters = []
 	life = 6
 
@@ -49,3 +49,11 @@ class hangman:
 	            return letter_found
 
 	    return letter_found
+
+	@classmethod
+	def register_secret_word(self, word):
+		self.secret_word = word
+
+	@classmethod
+	def get_secret_word(self):
+		return self.secret_word
